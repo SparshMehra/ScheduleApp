@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication_1.Adapter.ToDoAdapter;
+import com.example.myapplication_1.Model.ToDoModel;
 import com.example.myapplication_1.Util.DataBaseHandler;
 
 import java.util.ArrayList;
@@ -30,12 +31,7 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
 
         db= new DataBaseHandler(this);
 
-        taskList= new ArrayList<>();
 
-        taskRecycleView= taskRecycleView.findViewById(R.id.taskRecycleView);
-        taskRecycleView.setLayoutManager(new LinearLayoutManager(this));
-        tasksAdapter =new ToDoAdapter(this);
-        tasksRecycleView.setAdapter(tasksAdapter);
 
         ToDoModel task= new ToDoModel();
         task.setTask("This is test task");
@@ -49,6 +45,13 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
         taskList.add(task);
 
         tasksAdapter.setTasks(TaskList);
+
+        taskList= new ArrayList<>();
+
+        taskRecycleView= taskRecycleView.findViewById(R.id.taskRecycleView);
+        taskRecycleView.setLayoutManager(new LinearLayoutManager(this));
+        tasksAdapter =new ToDoAdapter(this);
+        tasksRecycleView.setAdapter(tasksAdapter);
     }
     @Override
     public void handleDialogClose(DialogInterface dialog){
