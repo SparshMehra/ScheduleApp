@@ -1,5 +1,4 @@
 package com.example.myapplication_1.Adapter;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,25 +10,24 @@ import android.widget.CompoundButton;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+import com.example.myapplication_1.AddNewTask;
 import com.example.myapplication_1.MainActivity;
 import com.example.myapplication_1.Model.ToDoModel;
-import com.example.myapplication_1.Util.DataBaseHandler;
 import com.example.myapplication_1.R;
-import com.example.myapplication_1.AddNewTask;
+import com.example.myapplication_1.Util.DatabaseHandler;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
 
     private List<ToDoModel> todoList;
-    private final DataBaseHandler db;
-    private final MainActivity activity;
+    private DatabaseHandler db;
+    private MainActivity activity;
 
-    public ToDoAdapter(DataBaseHandler db, MainActivity activity) {
+    public ToDoAdapter(DatabaseHandler db, MainActivity activity) {
         this.db = db;
         this.activity = activity;
-        this.todoList = new ArrayList<>();  // Initialize the list to avoid null checks later
     }
 
     @NonNull
@@ -103,4 +101,3 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
         }
     }
 }
-
